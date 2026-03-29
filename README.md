@@ -1,3 +1,6 @@
+# PHP8-Composer-Smarty-PHPUnit
+Aplicación web para gestión de filmoteca (CRUD) con PHP, Smarty y MySQL. Proyecto para la asignatura de Desarrollo Web en Entorno Servidor.
+
 # Proyecto Filmoteca DWES04
 
 Este proyecto es una aplicación web para la gestión de una filmoteca, desarrollada como parte de la Tarea 04 para el módulo de Desarrollo Web en Entorno Servidor (DWES). La aplicación permite listar, añadir, y borrar películas de una base de datos.
