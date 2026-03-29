@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--
+    Autor: Vitaliy Tserkovnyuk Velichko
+-->
+
+<head> <!--Llamamiento de los estilos, fuentes, letras y título de los que se van a emplear en la página web-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DWES, Tarea 4">
+    <meta name="author" content="Vitaliy Tserkovnyuk Velichko">
+
+    <!-- Importación del archivo css  -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <title>Resultado de proceso de guardar película</title>
+</head>
+
+<body>
+    <header>
+        <h1>Author: Vitaliy Tserkovnyuk Velichko</h1>
+    </header>
+    <hr>
+    <main>
+        <h2>Resultado proceso de guardar película</h2>
+
+        {if isset($erroresFormulario) }
+            {foreach $erroresFormulario as $error}
+                <h4>{$error}</h4>
+            {/foreach}  
+        {else}
+            <h2>{$mensajeExito}</h2>
+        {/if}
+
+        <a class="boton" href="index.php?accion=defecto">Volver a la lista de películas</a>
+        <a class="boton" href="index.php?accion=nueva_pelicula_form_VTV">Volver al formulario para añadir nueva pelicula</a>
+    </main>
+</body>
+
+</html>

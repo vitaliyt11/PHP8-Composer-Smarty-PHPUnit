@@ -1,0 +1,31 @@
+{
+    "name": "dwes04/vitaliy",
+    "description": "Tarea 04 DWES",
+    "type": "project",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "VTV04\\": "srcvtv/",
+            "DWES04SOL\\servicios\\": "srcvtv/servicios/",
+            "Controladores\\": "srcvtv/controladores/",
+            "Peticion\\": "script/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vitaliy Tserkovnyuk Velichko"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "smarty/smarty": "4.4.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "config": {
+        "audit": {
+            "block-insecure": false
+        }
+    }
+}
