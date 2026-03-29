@@ -1,0 +1,52 @@
+CREATE TABLE IF NOT EXISTS `generos` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  `descripcion` TINYTEXT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `peliculas` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `titulo` VARCHAR(60) NOT NULL,
+  `genero` INT,
+  `direccion` VARCHAR(100) NOT NULL,
+  `duracion` INT NOT NULL CHECK (duracion>0 AND duracion<500),
+  `argumento` TINYTEXT NOT NULL,
+  `anio` INT NOT NULL CHECK (anio>1900),
+  INDEX `fk_peliculas_generos1_idx` (`genero` ASC),
+  CONSTRAINT `fk_peliculas_generos1`
+    FOREIGN KEY (`genero`)
+    REFERENCES `generos` (`id`)
+    ON DELETE SET NULL
+    ON UPDATE SET NULL )
+ENGINE = InnoDB;
+
+
+INSERT INTO `generos` (`id`, `nombre`, `descripcion`) VALUES
+	(1,'animación', 'Películas de animación, tanto tradicionales como por computadora'),
+	(2,'drama', 'Películas centradas en el desarrollo emocional y conflictos de los personajes'),
+	(3,'ciencia ficción/fantasía', 'Películas con elementos tecnológicos, futuristas o fantásticos'),
+	(4,'comedia', 'Películas destinadas a provocar risa y entretenimiento ligero'),
+	(5,'thriller', 'Películas de suspense y tensión'),
+	(6,'documental', 'Películas basadas en hechos reales y investigación');
+
+
+    INSERT INTO `peliculas` (`id`, `titulo`, `genero`, `direccion`, `duracion`, `argumento`, `anio`) VALUES
+	(1, 'El viaje de Luma', 1, 'Carla Gómez', 95, 'Una joven descubre un mundo mágico durante un viaje inesperado.', 2018),
+	(2, 'La caja de colores', 1, 'Miguel Ruiz', 82, 'Una aventura animada sobre amistad y creatividad.', 2015),
+	(3, 'Bosque de papel', 1, 'Ana Torres', 100, 'Animación poética sobre un bosque que guarda secretos.', 2021),
+	(4, 'Sombras en la ciudad', 2, 'Luis Martín', 120, 'Historia íntima de personajes cuyas vidas se entrelazan.', 2010),
+	(5, 'Cartas que no llegaron', 2, 'María López', 110, 'Un drama sobre decisiones, pérdidas y segundas oportunidades.', 2017),
+	(6, 'Día de otoño', 2, 'Pablo Herrera', 98, 'Retrato emocional de una familia en un día decisivo.', 2005),
+	(7, 'Estrella de vidrio', 3, 'Elena Vega', 130, 'Ciencia ficción sobre un descubrimiento que cambia la humanidad.', 2023),
+	(8, 'Aurora mecánica', 3, 'Diego Salas', 140, 'Una fusión de tecnología y mito en un futuro cercano.', 2020),
+	(9, 'Los portales', 3, 'Nora Díaz', 105, 'Exploradores atraviesan mundos paralelos en busca de respuestas.', 2012),
+	(10, 'Un café y dos risas', 4, 'Raúl Sánchez', 85, 'Comedia ligera sobre enredos entre amigos en una cafetería.', 2011),
+	(11, 'Manual de excusas', 4, 'Sofía Ramos', 90, 'Situaciones cómicas derivadas de excusas cada vez más absurdas.', 2019),
+	(12, 'Vecinos a destiempo', 4, 'Óscar Medina', 95, 'Comedia sobre la convivencia forzada entre vecinos opuestos.', 2008),
+	(13, 'Silencio en la noche', 5, 'Carlos Núñez', 105, 'Un suspense tenso donde cada detalle cuenta.', 2016),
+	(14, 'La huella', 5, 'Irene Paredes', 115, 'Thriller sobre una investigación que desentierra viejos secretos.', 2014),
+	(15, 'Bajo la mira', 5, 'Fernando Cruz', 125, 'Persecución intelectual entre cazador y presa en clave psicológica.', 2022),
+	(16, 'Raíces', 6, 'Pilar Ortiz', 72, 'Documental que explora tradiciones y memoria colectiva.', 2002),
+	(17, 'Olas y gentes', 6, 'Andrés Molina', 80, 'Retrato documental de comunidades costeras y su relación con el mar.', 2015),
+	(18, 'Archivos olvidados', 6, 'Lucía Blanco', 95, 'Investigación documental sobre archivos y testimonios del pasado.', 1999);
